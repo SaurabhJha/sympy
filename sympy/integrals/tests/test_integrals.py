@@ -247,6 +247,12 @@ def test_issue580():
     # definite integration of rational functions gives wrong answers
     assert NS(Integral(1/(x**2 - 8*x + 17), (x, 2, 4))) == '1.10714871779409'
 
+def test_interval():
+    assert Integral(x**2 + 2*x*y + 1, (x, 1, 10), (y, 0, 1)).interval() == [(1, 10), (0, 1)]
+    assert Integral(y, (y, 1, 2)).interval() == [(1, 2)]
+    assert Integral(cos(x), (x, 0, pi/2)).interval() == [(0, pi/2)]
+    assert Integral(log(x), (x, 1, 10)).interval() == [(1, 10)]
+
 
 def test_issue587():  # remove this when fresnel itegrals are implemented
     from sympy import expand_func, fresnels

@@ -138,7 +138,6 @@ def test_Lambda_arguments():
     raises(TypeError, lambda: Lambda(x, 2*x)(x, y))
     raises(TypeError, lambda: Lambda((x, y), x + y)(x))
 
-
 def test_Lambda_equality():
     assert Lambda(x, 2*x) == Lambda(y, 2*y)
     # although variables are casts as Dummies, the expressions
